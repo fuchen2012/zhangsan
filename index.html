@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张三 | 资深房地产销售顾问</title>
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+            background-color: #FFFFFF;
+            color: #4A4A4A;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section spacing - compact for single-screen view */
+        section {
+            padding: 16px 0;
+        }
+
+        .section-divider {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-divider span {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #2C3E6B;
+            font-weight: 600;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-divider span::before,
+        .section-divider span::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 1px;
+            background-color: #C9A96E;
+        }
+
+        .section-divider span::before {
+            right: calc(100% + 10px);
+        }
+
+        .section-divider span::after {
+            left: calc(100% + 10px);
+        }
+
+        /* ========== Hero ========== */
+        .hero {
+            text-align: center;
+            padding: 28px 0 12px;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #E8ECF4;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid #2C3E6B;
+        }
+
+        .avatar svg {
+            width: 36px;
+            height: 36px;
+            fill: #2C3E6B;
+            opacity: 0.4;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2C3E6B;
+            margin-bottom: 4px;
+            letter-spacing: 4px;
+        }
+
+        .hero .title {
+            font-size: 14px;
+            color: #4A6FA5;
+            font-weight: 500;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+
+        .hero .tagline {
+            font-size: 13px;
+            color: #7A7A7A;
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        /* ========== Qualifications ========== */
+        .quals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .qual-card {
+            background-color: #F8F9FA;
+            border-radius: 8px;
+            padding: 14px 12px;
+            text-align: center;
+        }
+
+        .qual-card .icon {
+            width: 24px;
+            height: 24px;
+            margin: 0 auto 6px;
+            fill: #2C3E6B;
+        }
+
+        .qual-card .number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2C3E6B;
+            margin-bottom: 2px;
+        }
+
+        .qual-card .label {
+            font-size: 12px;
+            color: #7A7A7A;
+            line-height: 1.3;
+        }
+
+        /* ========== Contact ========== */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-items {
+            display: flex;
+            justify-content: center;
+            gap: 36px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item .icon {
+            width: 24px;
+            height: 24px;
+            fill: #2C3E6B;
+            margin-bottom: 4px;
+        }
+
+        .contact-item .label {
+            font-size: 10px;
+            color: #7A7A7A;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        .contact-item .value {
+            font-size: 14px;
+            color: #2C3E6B;
+            font-weight: 500;
+        }
+
+        .qr-placeholder {
+            width: 72px;
+            height: 72px;
+            background-color: #F8F9FA;
+            border: 2px dashed #D0D5DD;
+            border-radius: 6px;
+            margin: 6px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #B0B0B0;
+        }
+
+        .cta {
+            font-size: 13px;
+            color: #7A7A7A;
+        }
+
+        /* ========== Footer ========== */
+        footer {
+            text-align: center;
+            padding: 16px 0 12px;
+            border-top: 1px solid #F0F0F0;
+            font-size: 11px;
+            color: #B0B0B0;
+        }
+
+        /* ========== Scroll Fade-in ========== */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 600px) {
+            .hero { padding: 22px 0 10px; }
+            .hero h1 { font-size: 22px; letter-spacing: 3px; }
+            .avatar { width: 64px; height: 64px; margin-bottom: 10px; }
+            .avatar svg { width: 28px; height: 28px; }
+            section { padding: 12px 0; }
+            .quals-grid { grid-template-columns: 1fr; }
+            .contact-items { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== Hero ==================== -->
+    <section class="hero fade-section" id="hero">
+        <div class="container">
+            <div class="avatar">
+                <!-- 占位头像：请替换为本人照片 -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/>
+                </svg>
+            </div>
+            <h1>张 三</h1>
+            <p class="title">资深房地产销售顾问</p>
+            <p class="tagline">用心服务每一位客户，帮你找到理想的家</p>
+        </div>
+    </section>
+
+    <!-- ==================== Qualifications ==================== -->
+    <section class="fade-section" id="qualifications">
+        <div class="container">
+            <div class="section-divider">
+                <span>专业资质</span>
+            </div>
+            <div class="quals-grid">
+                <div class="qual-card">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <div class="number">10年</div>
+                    <div class="label">房地产销售经验</div>
+                </div>
+                <div class="qual-card">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <div class="number">覆盖</div>
+                    <div class="label">XX区域核心商圈</div>
+                </div>
+                <div class="qual-card">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    </svg>
+                    <div class="number">500+</div>
+                    <div class="label">累计服务客户</div>
+                </div>
+                <div class="qual-card">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                    <div class="number">年度销冠 ×3</div>
+                    <div class="label">连续三年蝉联</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Contact ==================== -->
+    <section class="fade-section" id="contact">
+        <div class="container">
+            <div class="section-divider">
+                <span>联系我</span>
+            </div>
+            <div class="contact-items">
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    <div class="label">电话</div>
+                    <div class="value">138-xxxx-xxxx</div>
+                </div>
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
+                    </svg>
+                    <div class="label">微信</div>
+                    <div class="qr-placeholder">请替换为微信二维码</div>
+                </div>
+            </div>
+            <p class="cta">随时联系我，为你提供专业房产咨询</p>
+        </div>
+    </section>
+
+    <!-- ==================== Footer ==================== -->
+    <footer>
+        <div class="container">
+            &copy; 2025 张三 &nbsp;·&nbsp; All Rights Reserved
+        </div>
+    </footer>
+
+    <script>
+        // Scroll fade-in observer
+        const sections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+
+</body>
+</html>

@@ -160,21 +160,19 @@
 
         .contact-items {
             display: flex;
-            justify-content: center;
-            gap: 36px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
             margin-bottom: 12px;
         }
 
-        .contact-item {
-            text-align: center;
+        .contact-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 6px;
         }
 
-        .contact-qr {
-            padding-top: 48px;
-        }
-
-        .contact-item .icon {
+        .contact-top .icon {
             display: block;
             width: 24px;
             height: 24px;
@@ -182,18 +180,30 @@
             fill: #2C3E6B;
         }
 
-        .contact-item .label {
+        .contact-top .label {
             font-size: 10px;
-            line-height: 14px;
             color: #7A7A7A;
             letter-spacing: 2px;
-            margin-bottom: 6px;
         }
 
-        .contact-item .value {
+        .contact-bottom {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .contact-bottom .value {
             font-size: 14px;
             color: #2C3E6B;
             font-weight: 500;
+        }
+
+        .qr-wrap img {
+            display: block;
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 4px;
         }
 
         .qr-placeholder {
@@ -244,9 +254,7 @@
             .avatar svg { width: 28px; height: 28px; }
             section { padding: 12px 0; }
             .quals-grid { grid-template-columns: 1fr; }
-            .contact-items { flex-direction: column; gap: 20px; }
-            .contact-qr { padding-top: 0; }
-            .contact-qr img { max-width: 100px; }
+            .contact-bottom { flex-direction: column; gap: 12px; }
         }
     </style>
 </head>
@@ -310,16 +318,16 @@
                 <span>联系我</span>
             </div>
             <div class="contact-items">
-                <div class="contact-item">
+                <div class="contact-top">
                     <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                     </svg>
                     <div class="label">电话</div>
-                    <div class="value">13888888888</div>
                 </div>
-                <div class="contact-item contact-qr">
-                    <div style="width:80px;height:80px;">
-                        <img src="2.png" alt="微信二维码" style="width:100%;height:100%;object-fit:contain;border-radius:4px;">
+                <div class="contact-bottom">
+                    <span class="value">13888888888</span>
+                    <div class="qr-wrap">
+                        <img src="2.png" alt="微信二维码">
                     </div>
                 </div>
             </div>

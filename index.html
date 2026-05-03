@@ -160,48 +160,49 @@
 
         .contact-items {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            align-items: stretch;
+            gap: 40px;
             margin-bottom: 12px;
         }
 
-        .contact-top {
+        .contact-phone {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 6px;
+            gap: 6px;
         }
 
-        .contact-top .icon {
+        .contact-phone .icon {
             display: block;
             width: 24px;
             height: 24px;
-            margin: 0 auto 4px;
             fill: #2C3E6B;
         }
 
-        .contact-top .label {
+        .contact-phone .label {
             font-size: 10px;
+            line-height: 14px;
             color: #7A7A7A;
             letter-spacing: 2px;
         }
 
-        .contact-bottom {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .contact-bottom .value {
+        .contact-phone .value {
             font-size: 14px;
+            line-height: 22px;
             color: #2C3E6B;
             font-weight: 500;
         }
 
-        .qr-wrap img {
+        .contact-qr {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-qr img {
             display: block;
-            width: 80px;
-            height: 80px;
+            width: 72px;
+            height: 72px;
             object-fit: contain;
             border-radius: 4px;
         }
@@ -254,7 +255,8 @@
             .avatar svg { width: 28px; height: 28px; }
             section { padding: 12px 0; }
             .quals-grid { grid-template-columns: 1fr; }
-            .contact-bottom { flex-direction: column; gap: 12px; }
+            .contact-items { flex-direction: column; gap: 16px; }
+            .contact-qr img { width: 64px; height: 64px; }
         }
     </style>
 </head>
@@ -318,17 +320,15 @@
                 <span>联系我</span>
             </div>
             <div class="contact-items">
-                <div class="contact-top">
+                <div class="contact-phone">
                     <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                     </svg>
                     <div class="label">电话</div>
-                </div>
-                <div class="contact-bottom">
                     <span class="value">13888888888</span>
-                    <div class="qr-wrap">
-                        <img src="2.png" alt="微信二维码">
-                    </div>
+                </div>
+                <div class="contact-qr">
+                    <img src="2.png" alt="微信二维码">
                 </div>
             </div>
             <p class="cta">随时联系我，为你提供专业房产咨询</p>
